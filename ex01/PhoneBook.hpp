@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
 
 class	Contact
 {
@@ -25,5 +26,15 @@ class	PhoneBook
 	public:
 	void	AddContact();
 	void	SearchContact();
+	void	next_setter(int i);
 };
+
+typedef	enum t_codes
+{
+	ALPHABETICAL,
+	ALPHANUMERICAL,
+	NUMERICAL,
+}	t_codes;
+
+std::string	InputReader(std::string message, int flag);
 #endif

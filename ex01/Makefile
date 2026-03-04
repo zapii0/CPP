@@ -1,9 +1,9 @@
 .PHONY: all clean fclean re
 
 CXX			= c++
-NAME		= phonebook
+NAME		= PhoneBook
 OBJS		= ${SRC:.cpp=.o}
-SRC			= phonebook.cpp
+SRC			= PhoneBook.cpp
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 %.o: %.cpp
