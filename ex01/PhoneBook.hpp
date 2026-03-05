@@ -14,19 +14,22 @@ class	Contact
 	std::string _phone_number;
 	std::string _secret;
 	int			_index;
+	void		FormatPrinter(std::string info);
 	public:
 	void	ContactSetter();
+	void	PrintContact(int i);
 };
 
 class	PhoneBook
 {
 	private:
 	Contact	_contacts[8];
-	int		_next;
+	int		_index;
+	int		_num_contacts;
 	public:
 	void	AddContact();
 	void	SearchContact();
-	void	next_setter(int i);
+	void	Setter(int i, int j);
 };
 
 typedef	enum t_codes
@@ -34,7 +37,8 @@ typedef	enum t_codes
 	ALPHABETICAL,
 	ALPHANUMERICAL,
 	NUMERICAL,
+	INDEX,
 }	t_codes;
 
-std::string	InputReader(std::string message, int flag);
+std::string	InputReader(std::string message, int flag, int num);
 #endif
