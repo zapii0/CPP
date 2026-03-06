@@ -16,7 +16,7 @@ class	Contact
 	int			_index;
 	void		FormatPrinter(std::string info);
 	public:
-	void	ContactSetter();
+	void	ContactSetter(int index);
 	void	PrintContact(int i);
 };
 

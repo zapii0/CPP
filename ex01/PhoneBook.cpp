@@ -5,7 +5,7 @@ int	main(void)
 	PhoneBook	PhoneBook;
 	std::string	input_line;
 
-	PhoneBook.Setter(0, 0);
+	PhoneBook.Setter(1, 0);
 	while (1)
 	{
 		std::cout << "List of commands: ADD, SEARCH, EXIT\n";
@@ -24,13 +24,12 @@ int	main(void)
 
 void	PhoneBook::AddContact()
 {
-	this->_contacts[_index].ContactSetter();
-	if (_index == 8)
+	this->_contacts[_index - 1].ContactSetter(_index);
+	_index++;
+	if (_index > 8)
 		_index = 1;
-	else
-		_index++;
-	if (_index > _num_contacts)
-		_num_contacts = _index;
+	if (_num_contacts < 8)
+		_num_contacts++;
 	std::cout << "Contact added\n";
 	return ;
 }
@@ -44,11 +43,10 @@ void	PhoneBook::Setter(int i, int j)
 
 void	PhoneBook::SearchContact()
 {
-	for (int i = 0; i < _num_contacts; i++)
-		_contacts[i].PrintContact(1);
+	for (int i = 1; i <= _num_contacts; i++)
+		_contacts[i - 1].PrintContact(1);
 	std::string index = InputReader("Index must exist and be in range from 1 to 8:\n", INDEX, _num_contacts);
-	int search_index = index[0] - '0';
-	search_index += -1;
+	int search_index = index[0] - '0' - 1;
 	_contacts[search_index].PrintContact(0);
 	return ;
 }
@@ -99,8 +97,9 @@ void	Contact::FormatPrinter(std::string info)
 	return ;
 }
 
-void	Contact::ContactSetter()
+void	Contact::ContactSetter(int index)
 {
+	_index = index;
 	_first_name = InputReader("First name:\n", ALPHABETICAL, 0);
 	_last_name = InputReader("Last name:\n", ALPHABETICAL, 0);
 	_nickname = InputReader("Nickname:\n", ALPHANUMERICAL, 0);
@@ -153,5 +152,3 @@ std::string	InputReader(std::string message, int flag, int num)
 	return (input_line);
 }
 
-//SEGFAULT PRZY DODAWANIU 9 CONTACTU NIE NADPISUJE 
-//ZLE WYPISUJE INDEXY
