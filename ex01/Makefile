@@ -3,7 +3,7 @@
 CXX			= c++
 NAME		= PhoneBook
 OBJS		= ${SRC:.cpp=.o}
-SRC			= PhoneBook.cpp
+SRC			= PhoneBook.cpp Contact.cpp
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 %.o: %.cpp
