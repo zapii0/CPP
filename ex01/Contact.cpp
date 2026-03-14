@@ -39,7 +39,7 @@ void	Contact::FormatPrinter(std::string info)
 	}
 	else
 	{
-		for (int j = 0; j <= 9; j++)
+		for (int j = 0; j <= 7; j++)
 			std::cout << info[j];
 		std::cout << '.';
 	}

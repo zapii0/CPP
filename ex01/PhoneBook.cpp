@@ -10,7 +10,6 @@ int	main(void)
 	{
 		std::cout << "List of commands: ADD, SEARCH, EXIT\n";
 		std::getline(std::cin, input_line, '\n');
-		//trim stringa ba zrobic trzeba
 		if (input_line == "ADD")
 			PhoneBook.AddContact();
 		else if (input_line == "SEARCH")
