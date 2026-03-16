@@ -2,10 +2,13 @@
 
 int	main(void)
 {
-	Zombie dupa;
-	Zombie *zombieHeap;
-	zombieHeap->newZombie("Heap");
-	zombieHeap->announce();
-	dupa.randomChump("zombiestack");
-	delete zombieHeap;
+	// Stack Zombie
+	std::cout << "Stack Zombie:\n";
+	randomChump("rysiu");
+
+	// Heap Zombie
+	std::cout << "Heap Zombie:\n";
+	Zombie *demon = newZombie("demon");
+	demon->announce();
+	delete demon;
 }

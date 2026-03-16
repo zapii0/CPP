@@ -11,8 +11,12 @@ Zombie::~Zombie()
 	std::cout << _name << " deleted\n";
 }
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie()
 {
-	_name = name;
-	std::cout << _name << " created\n";
+	std::cout << "zombie created\n";
+}
+
+void	Zombie::NameSetter(std::string name)
+{
+	this->_name = name;
 }
