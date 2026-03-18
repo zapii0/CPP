@@ -1,8 +1,8 @@
 .PHONY: all clean fclean re
 
 CXX			= c++
-NAME		= Human
-SRC			= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+NAME		= Sed
+SRC			= main.cpp sed.cpp
 OBJS		= ${SRC:.cpp=.o}
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 

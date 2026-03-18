@@ -1,7 +1,7 @@
 .PHONY: all clean fclean re
 
 CXX			= c++
-NAME		= Zombie
+NAME		= ZombieHorde
 OBJS		= ${SRC:.cpp=.o}
 SRC			= main.cpp Zombie.cpp ZombieHorde.cpp
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
