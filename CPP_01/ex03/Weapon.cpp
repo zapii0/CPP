@@ -3,7 +3,6 @@
 Weapon::Weapon(std::string Weapon)
 {
 	setType(Weapon);
-	std::cout << Weapon << " created\n";
 }
 Weapon::~Weapon()
 {

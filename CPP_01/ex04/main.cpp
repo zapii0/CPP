@@ -8,9 +8,8 @@ int	main(int ac, char **av)
 		std::string s1 = av[2];
 		std::string s2 = av[3];
 		
-		if (filename.empty() || s1.empty() || s2.empty())
+		if (filename.empty() || s1.empty())
 			return (-1);
-		// erase insert
 		std::ifstream input(filename.c_str());
 		if (!input.is_open())
 		{
@@ -27,6 +26,7 @@ int	main(int ac, char **av)
 		iReaderAndOutputFiller(input, s1, s2, outputFile);
 		input.close();
 		outputFile.close();
+		return (0);
 	}
 	else
 		return (-1);
