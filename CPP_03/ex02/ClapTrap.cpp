@@ -26,7 +26,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &obj)
 {
 	std::cout << "Copy assignment operator called\n";
 	if (this == &obj)
-	return (*this);
+		return (*this);
 	this->_name = obj._name;
 	this->_health = obj._health;
 	this->_attack_dmg = obj._attack_dmg;
