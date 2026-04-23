@@ -122,16 +122,18 @@ Fixed Fixed::operator-(const Fixed &rhs) const
 
 Fixed Fixed::operator*(const Fixed &rhs) const
 {
-	Fixed res;
-	res.setRawBits(this->getRawBits() * rhs.getRawBits());
-	return (res);
+    Fixed res;
+    long long temp = (long long)this->getRawBits() * (long long)rhs.getRawBits();
+    res.setRawBits((int)(temp >> _fractionalBits));
+    return (res);
 }
 
 Fixed Fixed::operator/(const Fixed &rhs) const
 {
-	Fixed res;
-	res.setRawBits(this->getRawBits() / rhs.getRawBits());
-	return (res);
+    Fixed res;
+    long long temp = (long long)this->getRawBits() << _fractionalBits;
+    res.setRawBits((int)(temp / rhs.getRawBits()));
+    return (res);
 }
 
 Fixed& Fixed::operator++()
