@@ -30,3 +30,20 @@ void		ScavTrap::attack(const std::string& target)
 		std::cout << "No enough points to attack " << target << "\n";
 
 }
+
+ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap(obj)
+{
+	std::cout << "ScavTrap Copy constructor called\n";
+	this->_name = obj._name;
+	this->_health = obj._health;
+	this->_attack_dmg = obj._attack_dmg;
+	this->_energy = obj._energy;
+}
+ScavTrap::ScavTrap()
+{
+	std::cout << "Deafult constructor called\n";
+	this->_name = "deafult";
+	this->_health = 100;
+	this->_energy = 50;
+	this->_attack_dmg = 20;
+}

@@ -3,7 +3,7 @@
 CXX			= c++
 NAME		= ClapTrap
 OBJS		= ${SRC:.cpp=.o}
-SRC			= main.cpp ClapTrap.cpp
+SRC			= main.cpp ClapTrap.cpp ScavTrap.cpp
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 %.o: %.cpp
