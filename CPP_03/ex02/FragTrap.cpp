@@ -15,7 +15,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->_health = 100;
 	this->_energy = 100;
 	this->_attack_dmg = 30;
-	std::cout << "Construtor called\n";
+	std::cout << "Constructor called\n";
 }
 
 FragTrap&	FragTrap::operator=(const FragTrap &obj)

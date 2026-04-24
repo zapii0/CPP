@@ -56,6 +56,6 @@ ScavTrap& 	ScavTrap::operator=(const ScavTrap &obj)
 	this->_attack_dmg = obj._attack_dmg;
 	this->_energy = obj._energy;
 	this->_name = obj._name;
-	std::cout << "ScavTrap copy assignment operator called/n";
+	std::cout << "ScavTrap copy assignment operator called\n";
 	return (*this);
 }
