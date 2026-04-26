@@ -1,20 +1,25 @@
 #include "Animal.hpp"
 
+std::string	Animal::getType() const
+{
+	return (type);
+}
+
 Animal::Animal()
 {
-	std::cout << "Animal default constructor called\n";
+	std::cout << "Animal " << this->type << "default constructor called\n";
 	type = "default animal";
 }
 
 Animal::Animal(std::string type)
 {
-	std::cout << "Animal construtor called\n";
+	std::cout << "Animal " << type << " construtor called\n";
 	this->type = type; 
 }
 
 Animal::Animal(const Animal &obj)
 {
-	std::cout << "Copy constructor called\n";
+	std::cout << "Animal " << type << " Copy constructor called\n";
 	if (this == &obj)
 		return ;
 	else
@@ -23,7 +28,7 @@ Animal::Animal(const Animal &obj)
 
 Animal&	Animal::operator=(const Animal &obj)
 {
-	std::cout << "Copy assignment operator called\n";
+	std::cout << "Animal " <<  this->type << " Copy assignment operator called\n";
 	if (this == &obj)
 		return (*this);
 	else
@@ -33,7 +38,7 @@ Animal&	Animal::operator=(const Animal &obj)
 	}
 }
 
-void	Animal::makeSound()
+void	Animal::makeSound() const
 {
 	std::cout << "Default animal sound\n";
 }

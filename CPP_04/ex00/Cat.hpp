@@ -6,7 +6,7 @@
 class Cat : public Animal
 {
 	public:
-	void	makeSound();
+	void	makeSound() const;
 	Cat();
 	Cat(std::string type);
 	Cat(const Cat &obj);
