@@ -3,17 +3,17 @@
 Fixed::Fixed(void)
 {
 	_fixed = 0;
-	std::cout << "constructor called\n";
+	std::cout << "Constructor called\n";
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "constructor called\n";
+	std::cout << "Destructor called\n";
 }
 
 Fixed::Fixed(const Fixed &obj)
 {
-	std::cout << "copy constructor called\n";
+	std::cout << "Copy constructor called\n";
 	_fixed = obj._fixed;
 }
 
@@ -21,7 +21,7 @@ Fixed& Fixed::operator=(const Fixed &obj)
 {
 	if (this == &obj)
 		return *this;
-	_fixed = getRawBits();
+	_fixed = obj.getRawBits();
 	return (*this);
 }
 
