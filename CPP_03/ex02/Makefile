@@ -1,7 +1,7 @@
 .PHONY: all clean fclean re
 
 CXX			= c++
-NAME		= ClapTrap
+NAME		= FragTrap
 OBJS		= ${SRC:.cpp=.o}
 SRC			= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
