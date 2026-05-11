@@ -1,22 +1,42 @@
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#include "WrongAnimal.hpp"
 
-# include <string>
-# include <iostream>
-
-class WrongAnimal
+WrongAnimal::WrongAnimal()
 {
-	protected:
-		std::string type;
-	public:
-		WrongAnimal();
-		WrongAnimal(std::string type);
-		WrongAnimal(const WrongAnimal &obj);
-		WrongAnimal& operator=(const WrongAnimal &obj);
-		~WrongAnimal();
+	type = "WrongAnimal";
+	std::cout << "WrongAnimal default constructor called\n";
+}
 
-		std::string getType() const;
-		void makeSound() const;
-    };
+WrongAnimal::WrongAnimal(std::string type)
+{
+	this->type = type; 
+	std::cout << "WrongAnimal " << type << " constructor called\n";
+}
 
-#endif
+WrongAnimal::WrongAnimal(const WrongAnimal &obj)
+{
+	std::cout << "WrongAnimal copy constructor called\n";
+	*this = obj;
+}
+
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &obj)
+{
+	std::cout << "WrongAnimal copy assignment operator called\n";
+	if (this != &obj)
+		this->type = obj.type;
+	return (*this);
+}
+
+WrongAnimal::~WrongAnimal()
+{
+	std::cout << "WrongAnimal destructor called\n";
+}
+
+std::string WrongAnimal::getType() const
+{
+	return (type);
+}
+
+void WrongAnimal::makeSound() const
+{
+	std::cout << "Default WRONG animal sound!\n";
+}
