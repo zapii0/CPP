@@ -3,7 +3,7 @@
 CXX			= c++
 NAME		= Animal
 OBJS		= ${SRC:.cpp=.o}
-SRC			= main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRC			= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 %.o: %.cpp
