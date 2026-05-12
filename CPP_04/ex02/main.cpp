@@ -1,4 +1,4 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Brain.hpp"
@@ -7,16 +7,16 @@
 int main()
 {
     std::cout << "ABSTRACT CLASS TEST\n";
-    
-    // Animal* test = new Animal(); // COMPILER ERROR NOW!
-    
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+
+    // AAnimal* test = new AAnimal(); // COMPILER ERROR NOW!
+
+    const AAnimal* j = new Dog();
+    const AAnimal* i = new Cat();
 
     std::cout << "\n";
     std::cout << "Type of j: " << j->getType() << "\n";
     std::cout << "Type of i: " << i->getType() << "\n";
-    
+
     i->makeSound();
     j->makeSound();
 
@@ -28,7 +28,7 @@ int main()
     std::cout << "\n";
     std::cout << "ARRAY TEST STILL WORKS\n";
     const int arraySize = 4;
-    Animal* animals[arraySize];
+    AAnimal* animals[arraySize];
 
     for (int k = 0; k < arraySize / 2; k++) {
         animals[k] = new Dog();

@@ -2,11 +2,11 @@
 
 ClapTrap::ClapTrap(std::string name)
 {
+	std::cout << "ClapTrap " << this->_name << " constructor called\n";
 	this->_name = name;
 	this->_health = 10;
 	this->_attack_dmg = 0;
 	this->_energy = 10;
-	std::cout << "ClapTrap " << this->_name << " constructor called\n";
 }
 ClapTrap::ClapTrap()
 {
@@ -14,32 +14,37 @@ ClapTrap::ClapTrap()
 	this->_health = 10;
 	this->_attack_dmg = 0;
 	this->_energy = 10;
-	std::cout << "ClapTrap " << this->_name << " default constructor called\n";
+	std::cout << "ClapTrap " << _name << " default constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
+	std::cout << "ClapTrap " << this->_name << " copy constructor called\n";
 	this->_name = obj._name;
 	this->_health = obj._health;
 	this->_attack_dmg = obj._attack_dmg;
 	this->_energy = obj._energy;
-	std::cout << "ClapTrap " << this->_name << " copy constructor called\n";
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &obj)
 {
+	std::cout << "ClapTrap " << this->_name << " copy assignment operator called\n";
 	if (this == &obj)
 	return (*this);
 	this->_name = obj._name;
 	this->_health = obj._health;
 	this->_attack_dmg = obj._attack_dmg;
 	this->_energy = obj._energy;
-	std::cout << "ClapTrap " << this->_name << " copy assignment operator called\n";
 	return (*this);
 }
 
 void		ClapTrap::attack(const std::string& target)
 {
+	if (this->_health <= 0)
+	{
+		std::cout << "ClapTrap " << _name << "doesn't have HP\n";
+		return ;
+	}
 	if (this->_energy > 0)
 	{
 		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_dmg << " points of damage\n";
@@ -52,9 +57,9 @@ void		ClapTrap::attack(const std::string& target)
 
 void		ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_health == 0)
+	if (this->_health <= 0)
 	{
-		std::cout << "ClapTrap " << this->_name << "doesn't have HP\n";
+		std::cout << "ClapTrap " << _name << "doesn't have HP\n";
 		return ;
 	}
 	this->_health -= amount;
@@ -66,15 +71,20 @@ void		ClapTrap::takeDamage(unsigned int amount)
 
 void		ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_energy < 1)
+	if (this->_health <= 0)
+	{
+		std::cout << "ClapTrap " << _name << "doesn't have HP\n";
+		return ;
+	}
+	if (this->_energy < 1)
 	{
 		std::cout << "ClapTrap " << this->_name << " No energy points left\n";
 		return ;
 	}
 	else
 	{
-		_health += amount;
-		_energy--;
+		this->_health += amount;
+		this->_energy--;
 		std::cout << "ClapTrap " << this->_name << " " << " repaired " << amount << " point of HP from " << amount << " points of energy\n";
 		std::cout << "ClapTrap " << this->_name << " " << this->_health << " HP level\n";
 	}

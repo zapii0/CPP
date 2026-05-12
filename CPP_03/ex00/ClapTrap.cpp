@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "ClapTrap " << this->_name << " Constructor called\n";
+	std::cout << "ClapTrap " << this->_name << " constructor called\n";
 	this->_name = name;
 	this->_health = 10;
 	this->_attack_dmg = 0;
@@ -10,12 +10,16 @@ ClapTrap::ClapTrap(std::string name)
 }
 ClapTrap::ClapTrap()
 {
+	this->_name = "default";
+	this->_health = 10;
+	this->_attack_dmg = 0;
+	this->_energy = 10;
 	std::cout << "ClapTrap " << _name << " default constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
-	std::cout << "ClapTrap " << this->_name << " Copy constructor called\n";
+	std::cout << "ClapTrap " << this->_name << " copy constructor called\n";
 	this->_name = obj._name;
 	this->_health = obj._health;
 	this->_attack_dmg = obj._attack_dmg;
@@ -24,7 +28,7 @@ ClapTrap::ClapTrap(const ClapTrap &obj)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &obj)
 {
-	std::cout << "ClapTrap " << this->_name << " Copy assignment operator called\n";
+	std::cout << "ClapTrap " << this->_name << " copy assignment operator called\n";
 	if (this == &obj)
 	return (*this);
 	this->_name = obj._name;
@@ -36,6 +40,11 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &obj)
 
 void		ClapTrap::attack(const std::string& target)
 {
+	if (this->_health <= 0)
+	{
+		std::cout << "ClapTrap " << _name << "doesn't have HP\n";
+		return ;
+	}
 	if (this->_energy > 0)
 	{
 		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_dmg << " points of damage\n";
@@ -48,7 +57,7 @@ void		ClapTrap::attack(const std::string& target)
 
 void		ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_health == 0)
+	if (this->_health <= 0)
 	{
 		std::cout << "ClapTrap " << _name << "doesn't have HP\n";
 		return ;
@@ -62,6 +71,11 @@ void		ClapTrap::takeDamage(unsigned int amount)
 
 void		ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->_health <= 0)
+	{
+		std::cout << "ClapTrap " << _name << "doesn't have HP\n";
+		return ;
+	}
 	if (this->_energy < 1)
 	{
 		std::cout << "ClapTrap " << this->_name << " No energy points left\n";
